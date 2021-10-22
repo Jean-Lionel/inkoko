@@ -1,0 +1,9 @@
+php artisan crud:generate Aliment --fields='name#string; description#text; category#select#options={"Vitamine": "Vitamine", "Minereau": "Minereau", "Torteau": "Torteau", "Autre":"Autre"}' --view-path=admin --controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html
+ 
+php artisan crud:generate Produit --fields='name#string;quantite#double;prix_unitaire#double;description#text; category#select#options={"Vitamine": "Vitamine", "Minereau": "Minereau", "Torteau": "Torteau", "Autre":"Autre"}' --foreign-keys="user_id#id#users#cascade"--controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html --validations="name#min:10;quantite#required;" --soft-deletes
+
+php artisan crud:generate Animal --fields='name#string;quantite#double;prix_unitaire#double;description#text; type#string' --foreign-keys="user_id"--controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html --validations="name#min:2;quantite#numeric#required;" --soft-deletes
+
+
+
+php artisan crud:generate FileAlimentation --fields='produit#string;quantite#double;prix_unitaire#double;observations#text; type#string'
