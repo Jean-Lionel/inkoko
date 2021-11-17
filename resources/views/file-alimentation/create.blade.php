@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Create New FileAlimentation</div>
+                    <div class="card-header">Fiche d'alimentation</div>
                     <div class="card-body">
-                        <a href="{{ url('/file-alimentation') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/file-alimentation') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> retour</button></a>
                         <br />
                         <br />
 

@@ -8,6 +8,13 @@
     <input class="form-control" name="quantite" type="number" id="quantite" value="{{ isset($animal->quantite) ? $animal->quantite : ''}}" required>
     {!! $errors->first('quantite', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('age') ? 'has-error' : ''}}">
+    <label for="age" class="control-label">{{ 'Age' }}</label>
+    <input class="form-control" name="age" type="number" id="age" value="{{ isset($animal->age) ? $animal->age : ''}}" required>
+    {!! $errors->first('age', '<p class="help-block">:message</p>') !!}
+</div>
+
+
 <div class="form-group {{ $errors->has('prix_unitaire') ? 'has-error' : ''}}">
     <label for="prix_unitaire" class="control-label">{{ 'Prix Unitaire' }}</label>
     <input class="form-control" name="prix_unitaire" type="number" id="prix_unitaire" value="{{ isset($animal->prix_unitaire) ? $animal->prix_unitaire : ''}}" >

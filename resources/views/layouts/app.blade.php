@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ELEVAGE DES POULES</title>
+    <title>FERME AVICOLE</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -37,12 +37,56 @@
           <p class="h1 m-0">BD</p></a>
       </div>
       <!-- Sidebar Navigation Menus-->
-      <span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span>
       <ul class="list-unstyled">                  
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('admin/animal') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
-            </svg>Poule </a></li>
+            </svg>Poule </a>
+          </li>
+
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('client') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Clients </a>
+          </li>
+           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('fournisseur') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Fournisseurs </a>
+          </li>
+
+         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Vente des oeufs</a>
+          </li>
+
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Vente des poules</a>
+          </li>
+
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Ravitaillement</a>
+          </li>
+
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Perte produits</a>
+          </li>
+
+           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Caisse & Dépenses</a>
+          </li>
+
+
+
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('file-alimentation') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
@@ -51,34 +95,21 @@
           <a class="sidebar-link" href=""> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#sales-up-1"> </use>
-            </svg>Charts </a></li>
+            </svg>Charts </a>
+        </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href=" {{ url('/admin/produit') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#portfolio-grid-1"> </use>
-            </svg>Stock </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#browser-window-1"> </use>
-            </svg>Example dropdown </a>
-          <ul class="collapse list-unstyled " id="exampledropdownDropdown">
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-          </ul>
-        </li>
-        
-        <li class="sidebar-item"><a class="sidebar-link" href="#!"> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#imac-screen-1"> </use>
-            </svg>Demo
-            <div class="badge bg-warning">6 New</div></a></li>
-      </ul><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Second menu</span>
-      <ul class="list-unstyled py-4">
-        <li class="sidebar-item"> <a class="sidebar-link" href="#!"> 
+            </svg>Produits </a></li>
+      
+      </ul>
+      <ul class="list-unstyled py-2">
+        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('rapport.index') }}"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#chart-1"> </use>
-            </svg>Demo</a></li>
+            </svg>Rapport</a>
+        </li>
         <li class="sidebar-item"> <a class="sidebar-link" href="">
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
@@ -104,74 +135,12 @@
                   <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
                     <use xlink:href="#menu-1"> </use>
                   </svg></a><a class="navbar-brand ms-2" href="index.html">
-                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">KWORORA </span><strong class="text-primary text-sm">INKOKO</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">FERME  </span><strong class="text-primary text-sm">AVICOLE</strong></div></a></div>
               <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Notifications dropdown-->
-                <li class="nav-item dropdown"> <a class="nav-link text-white position-relative" id="notifications" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                      <use xlink:href="#chart-1"> </use>
-                    </svg><span class="badge bg-warning">12</span></a>
-                  <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="notifications">
-                    <li><a class="dropdown-item py-3" href="#!"> 
-                        <div class="d-flex">
-                          <div class="icon icon-sm bg-blue">
-                            <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                              <use xlink:href="#envelope-1"> </use>
-                            </svg>
-                          </div>
-                          <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">You have 6 new messages </span><small class="small text-gray-600">4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a class="dropdown-item py-3" href="#!"> 
-                        <div class="d-flex">
-                          <div class="icon icon-sm bg-green">
-                            <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                              <use xlink:href="#chats-1"> </use>
-                            </svg>
-                          </div>
-                          <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">New 2 WhatsApp messages</span><small class="small text-gray-600">4 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a class="dropdown-item py-3" href="#!"> 
-                        <div class="d-flex">
-                          <div class="icon icon-sm bg-orange">
-                            <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                              <use xlink:href="#checked-window-1"> </use>
-                            </svg>
-                          </div>
-                          <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">Server Rebooted</span><small class="small text-gray-600">8 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a class="dropdown-item py-3" href="#!"> 
-                        <div class="d-flex">
-                          <div class="icon icon-sm bg-green">
-                            <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                              <use xlink:href="#chats-1"> </use>
-                            </svg>
-                          </div>
-                          <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">New 2 WhatsApp messages</span><small class="small text-gray-600">10 minutes ago</small></div>
-                        </div></a></li>
-                    <li><a class="dropdown-item all-notifications text-center" href="#!"> <strong class="text-xs text-gray-600">view all notifications                                            </strong></a></li>
-                  </ul>
-                </li>
+             
                 <!-- Messages dropdown-->
-                <li class="nav-item dropdown"> <a class="nav-link text-white position-relative" id="messages" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                      <use xlink:href="#envelope-1"> </use>
-                    </svg><span class="badge bg-info">10</span></a>
-                  <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="messages">
-                    <li><a class="dropdown-item d-flex py-3" href="#!"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-1.jpg" alt="..." width="45">
-                        <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
-                          <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
-                        </div></a></li>
-                    <li><a class="dropdown-item d-flex py-3" href="#!"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-2.jpg" alt="..." width="45">
-                        <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
-                          <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
-                        </div></a></li>
-                    <li><a class="dropdown-item d-flex py-3" href="#!"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-3.jpg" alt="..." width="45">
-                        <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
-                          <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
-                        </div></a></li>
-                    <li><a class="dropdown-item text-center" href="#!"> <strong class="text-xs text-gray-600">Read all messages       </strong></a></li>
-                  </ul>
-                </li>
+              
                 <!-- Languages dropdown    -->
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-white text-sm" id="languages" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="{{ asset('img/flags/16/BI.png') }}" alt="Ikirundi"><span class="d-none d-sm-inline-block ms-2">Ikirundi</span></a>
@@ -190,10 +159,18 @@
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a class="nav-link text-white text-sm ps-0" href="login.html"> <span class="d-none d-sm-inline-block">Logout</span>
-                    <svg class="svg-icon svg-icon-xs svg-icon-heavy">
-                      <use xlink:href="#security-1"> </use>
-                    </svg></a></li>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="post">
+                      @method("post")
+
+                      <button class="nav-link text-white text-sm ps-0">
+                        <span class="d-none d-sm-inline-block">Logout</span>
+                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                        <use xlink:href="#security-1"> </use> </svg>
+                      </button>
+                      
+                    </form>
+                  </li>
               </ul>
             </div>
           </div>

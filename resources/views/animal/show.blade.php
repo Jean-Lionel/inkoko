@@ -4,7 +4,6 @@
     <div class="container">
         <div class="row">
             @include('admin.sidebar')
-
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Animal {{ $animal->id }}</div>
@@ -20,7 +19,6 @@
                         </form>
                         <br/>
                         <br/>
-
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
@@ -28,6 +26,25 @@
                                         <th>ID</th><td>{{ $animal->id }}</td>
                                     </tr>
                                     <tr><th> Name </th><td> {{ $animal->name }} </td></tr><tr><th> Quantite </th><td> {{ $animal->quantite }} </td></tr><tr><th> Prix Unitaire </th><td> {{ $animal->prix_unitaire }} </td></tr>
+
+                                    <tr>
+                                        <th>Déscription</th>
+                                        <td>{{ $animal->description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Déscription</th>
+                                        <td>{{ $animal->type }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Age</th>
+                                        <td>{{ $animal->age }} (Jours)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date d'enregistrement </td>
+                                        <td>
+                                            {{  $animal->created_at }}
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

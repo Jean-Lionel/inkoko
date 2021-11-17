@@ -31,14 +31,22 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Produit</th><th>Quantite</th><th>Prix Unitaire</th><th>Actions</th>
+                                        <th>#</th><th>Produit</th><th>Quantite</th><th>Prix Unitaire</th>
+                                        <th>Prix Total</th>
+
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($filealimentation as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->produit->name ?? '' }}</td><td>{{ $item->quantite }}</td><td>{{ $item->prix_unitaire }}</td>
+                                        <td>{{ $item->produit->name ?? '' }}</td><td>{{ $item->quantite }}</td><td>
+                                            {{ $item->produit->prix_unitaire  ?? 0}}</td>
+                                            <td>
+                                            {{ number_format( $item->quantite *  ($item->produit->prix_unitaire  ?? 0))}}
+
+                                            </td>
                                         <td>
                                             <a href="{{ url('/file-alimentation/' . $item->id) }}" title="View FileAlimentation"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/file-alimentation/' . $item->id . '/edit') }}" title="Edit FileAlimentation"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

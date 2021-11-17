@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
+class Client extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'animals';
+    protected $table = 'clients';
 
     /**
     * The database primary key value.
@@ -25,7 +25,7 @@ class Animal extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'quantite', 'prix_unitaire', 'description','age', 'type'];
+    protected $fillable = ['nom', 'prenom', 'contact', 'type'];
 
     
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use App\Models\FollowProduct;
 use App\Models\FileAlimentation;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class FileAlimentationController extends Controller
@@ -19,7 +21,6 @@ class FileAlimentationController extends Controller
     {
         $keyword = $request->get('search');
         $perPage = 25;
-
         if (!empty($keyword)) {
             $filealimentation = FileAlimentation::where('produit', 'LIKE', "%$keyword%")
             ->orWhere('quantite', 'LIKE', "%$keyword%")
@@ -30,9 +31,7 @@ class FileAlimentationController extends Controller
         } else {
             $filealimentation = FileAlimentation::latest()->paginate($perPage);
         }
-
         $produits = Produit::orderBy('name','ASC')->get();
-
         return view('file-alimentation.index', 
             compact('filealimentation', 'produits'));
     }
@@ -59,9 +58,25 @@ class FileAlimentationController extends Controller
     {
 
         $requestData = $request->all();
+        $produit = Produit::findOrFail(  $request->produit_id);
 
-        FileAlimentation::create($requestData);
-
+            try{
+                DB::beginTransaction();
+                 if($produit->quantite >= $request->quantite)
+                 $produit->quantite -= floatval($request->quantite);
+                 FollowProduct::create([
+                    "quantite" => $request->quantite,
+                    "activite" => "SORTIE",
+                    "produit_id" => $produit->id,
+                    "description" => $produit->toJson(),
+                    "user_id" => auth()->user()->id
+                 ]);
+                 $produit->save();
+                   FileAlimentation::create($requestData);
+                DB::commit();
+            }catch(\Exception $e){
+                dd($e);
+            }
         return redirect('file-alimentation')->with('flash_message', 'FileAlimentation added!');
     }
 
@@ -89,8 +104,7 @@ class FileAlimentationController extends Controller
     public function edit($id)
     {
         $filealimentation = FileAlimentation::findOrFail($id);
-         $produits = Produit::orderBy('name','ASC')->get();
-
+        $produits = Produit::orderBy('name','ASC')->get();
         return view('file-alimentation.edit', compact('filealimentation', 'produits'));
     }
 
@@ -104,12 +118,9 @@ class FileAlimentationController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $requestData = $request->all();
-        
         $filealimentation = FileAlimentation::findOrFail($id);
         $filealimentation->update($requestData);
-
         return redirect('file-alimentation')->with('flash_message', 'FileAlimentation updated!');
     }
 
@@ -123,7 +134,6 @@ class FileAlimentationController extends Controller
     public function destroy($id)
     {
         FileAlimentation::destroy($id);
-
         return redirect('file-alimentation')->with('flash_message', 'FileAlimentation deleted!');
     }
 }
