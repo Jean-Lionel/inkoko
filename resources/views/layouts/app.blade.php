@@ -39,14 +39,14 @@
       <!-- Sidebar Navigation Menus-->
       <ul class="list-unstyled">                  
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('admin/animal') }}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
+            <svg class="svg-icon svg-icon-sm svg-icon-user me-xl-2">
+              <use xlink:href="#security-shield-1"> </use>
             </svg>Poule </a>
           </li>
 
           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('client') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
+              <use xlink:href="#quality-1"> </use>
             </svg>Clients </a>
           </li>
            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('fournisseur') }}"> 
@@ -61,27 +61,23 @@
             </svg>Vente des oeufs</a>
           </li>
 
-          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-poule') }}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-user me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Vente des poules</a>
           </li>
 
-          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
-            </svg>Ravitaillement</a>
-          </li>
 
-          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('perte-produit') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Perte produits</a>
           </li>
 
            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
+            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
+              <use xlink:href="#imac-screen-1"> </use>
+            </svg>
             </svg>Caisse & Dépenses</a>
           </li>
 
@@ -90,7 +86,7 @@
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('file-alimentation') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
-            </svg>Fiche d'alimentation </a></li>
+            </svg>Ravitaillement</a></li>
         <li class="sidebar-item">
           <a class="sidebar-link" href=""> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
@@ -106,8 +102,8 @@
       </ul>
       <ul class="list-unstyled py-2">
         <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('rapport.index') }}"> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#chart-1"> </use>
+             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
+              <use xlink:href="#security-shield-1"> </use>
             </svg>Rapport</a>
         </li>
         <li class="sidebar-item"> <a class="sidebar-link" href="">
@@ -161,9 +157,10 @@
                 <!-- Log out-->
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
+                      @csrf
                       @method("post")
 
-                      <button class="nav-link text-white text-sm ps-0">
+                      <button type="submit" class="nav-link text-white text-sm ps-0">
                         <span class="d-none d-sm-inline-block">Logout</span>
                         <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                         <use xlink:href="#security-1"> </use> </svg>

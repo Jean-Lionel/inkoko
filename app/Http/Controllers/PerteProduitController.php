@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Models\Client;
-use App\Models\VenteOeuf;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 
-class VenteOeufController extends Controller
+use App\Models\PerteProduit;
+use Illuminate\Http\Request;
+
+class PerteProduitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,14 @@ class VenteOeufController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $venteoeuf = VenteOeuf::where('quantite', 'LIKE', "%$keyword%")
-                ->orWhere('client_id', 'LIKE', "%$keyword%")
-                ->orWhere('prix_unitaire', 'LIKE', "%$keyword%")
+            $perteproduit = PerteProduit::where('quantite', 'LIKE', "%$keyword%")
+                ->orWhere('produit_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $venteoeuf = VenteOeuf::latest()->paginate($perPage);
+            $perteproduit = PerteProduit::latest()->paginate($perPage);
         }
 
-        return view('vente-oeuf.index', compact('venteoeuf'));
+        return view('perte-produit.index', compact('perteproduit'));
     }
 
     /**
@@ -39,8 +38,7 @@ class VenteOeufController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
-        return view('vente-oeuf.create', compact('clients'));
+        return view('perte-produit.create');
     }
 
     /**
@@ -55,9 +53,9 @@ class VenteOeufController extends Controller
         
         $requestData = $request->all();
         
-        VenteOeuf::create($requestData);
+        PerteProduit::create($requestData);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf added!');
+        return redirect('perte-produit')->with('flash_message', 'PerteProduit added!');
     }
 
     /**
@@ -69,9 +67,9 @@ class VenteOeufController extends Controller
      */
     public function show($id)
     {
-        $venteoeuf = VenteOeuf::findOrFail($id);
+        $perteproduit = PerteProduit::findOrFail($id);
 
-        return view('vente-oeuf.show', compact('venteoeuf'));
+        return view('perte-produit.show', compact('perteproduit'));
     }
 
     /**
@@ -83,9 +81,9 @@ class VenteOeufController extends Controller
      */
     public function edit($id)
     {
-        $venteoeuf = VenteOeuf::findOrFail($id);
+        $perteproduit = PerteProduit::findOrFail($id);
 
-        return view('vente-oeuf.edit', compact('venteoeuf'));
+        return view('perte-produit.edit', compact('perteproduit'));
     }
 
     /**
@@ -101,10 +99,10 @@ class VenteOeufController extends Controller
         
         $requestData = $request->all();
         
-        $venteoeuf = VenteOeuf::findOrFail($id);
-        $venteoeuf->update($requestData);
+        $perteproduit = PerteProduit::findOrFail($id);
+        $perteproduit->update($requestData);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf updated!');
+        return redirect('perte-produit')->with('flash_message', 'PerteProduit updated!');
     }
 
     /**
@@ -116,8 +114,8 @@ class VenteOeufController extends Controller
      */
     public function destroy($id)
     {
-        VenteOeuf::destroy($id);
+        PerteProduit::destroy($id);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf deleted!');
+        return redirect('perte-produit')->with('flash_message', 'PerteProduit deleted!');
     }
 }

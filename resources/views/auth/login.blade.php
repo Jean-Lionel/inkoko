@@ -1,14 +1,7 @@
-<x-guest-layout>
+<x-guest-layout >
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
-
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -23,7 +16,7 @@
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
+            <div class="mt-2">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class=""
@@ -52,5 +45,10 @@
                 </x-button>
             </div>
         </form>
+        <x-slot name="logo">
+            <a href="/" class="d-flex justify-content-center mb-4">
+            <img src="{{ asset('img/i147564-poule.jpeg') }}" height="150" width="150" class="img-fluid" alt="">
+            </a>
+        </x-slot>
     </x-auth-card>
 </x-guest-layout>

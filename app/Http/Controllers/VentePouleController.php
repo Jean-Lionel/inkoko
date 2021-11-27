@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Models\Client;
-use App\Models\VenteOeuf;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 
-class VenteOeufController extends Controller
+use App\Models\VentePoule;
+use Illuminate\Http\Request;
+
+class VentePouleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,15 @@ class VenteOeufController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $venteoeuf = VenteOeuf::where('quantite', 'LIKE', "%$keyword%")
+            $ventepoule = VentePoule::where('quantite', 'LIKE', "%$keyword%")
                 ->orWhere('client_id', 'LIKE', "%$keyword%")
                 ->orWhere('prix_unitaire', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $venteoeuf = VenteOeuf::latest()->paginate($perPage);
+            $ventepoule = VentePoule::latest()->paginate($perPage);
         }
 
-        return view('vente-oeuf.index', compact('venteoeuf'));
+        return view('vente-poule.index', compact('ventepoule'));
     }
 
     /**
@@ -39,8 +39,7 @@ class VenteOeufController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
-        return view('vente-oeuf.create', compact('clients'));
+        return view('vente-poule.create');
     }
 
     /**
@@ -55,9 +54,9 @@ class VenteOeufController extends Controller
         
         $requestData = $request->all();
         
-        VenteOeuf::create($requestData);
+        VentePoule::create($requestData);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf added!');
+        return redirect('vente-poule')->with('flash_message', 'VentePoule added!');
     }
 
     /**
@@ -69,9 +68,9 @@ class VenteOeufController extends Controller
      */
     public function show($id)
     {
-        $venteoeuf = VenteOeuf::findOrFail($id);
+        $ventepoule = VentePoule::findOrFail($id);
 
-        return view('vente-oeuf.show', compact('venteoeuf'));
+        return view('vente-poule.show', compact('ventepoule'));
     }
 
     /**
@@ -83,9 +82,9 @@ class VenteOeufController extends Controller
      */
     public function edit($id)
     {
-        $venteoeuf = VenteOeuf::findOrFail($id);
+        $ventepoule = VentePoule::findOrFail($id);
 
-        return view('vente-oeuf.edit', compact('venteoeuf'));
+        return view('vente-poule.edit', compact('ventepoule'));
     }
 
     /**
@@ -101,10 +100,10 @@ class VenteOeufController extends Controller
         
         $requestData = $request->all();
         
-        $venteoeuf = VenteOeuf::findOrFail($id);
-        $venteoeuf->update($requestData);
+        $ventepoule = VentePoule::findOrFail($id);
+        $ventepoule->update($requestData);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf updated!');
+        return redirect('vente-poule')->with('flash_message', 'VentePoule updated!');
     }
 
     /**
@@ -116,8 +115,8 @@ class VenteOeufController extends Controller
      */
     public function destroy($id)
     {
-        VenteOeuf::destroy($id);
+        VentePoule::destroy($id);
 
-        return redirect('vente-oeuf')->with('flash_message', 'VenteOeuf deleted!');
+        return redirect('vente-poule')->with('flash_message', 'VentePoule deleted!');
     }
 }

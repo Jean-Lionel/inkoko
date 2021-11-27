@@ -7,8 +7,10 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\RapportController;
 use App\Http\Controllers\VainqueurController;
 use App\Http\Controllers\VenteOeufController;
+use App\Http\Controllers\VentePouleController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\LaravelChartController;
+use App\Http\Controllers\PerteProduitController;
 use App\Http\Controllers\FileAlimentationController;
 
 /*
@@ -48,3 +50,5 @@ Route::resource('vainqueur', VainqueurController::class);
 Route::resource('client', ClientController::class);
 Route::resource('fournisseur', FournisseurController::class);
 Route::resource('vente-oeuf', VenteOeufController::class);
+Route::resource('vente-poule', VentePouleController::class);
+Route::resource('perte-produit', PerteProduitController::class);

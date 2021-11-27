@@ -1,51 +1,41 @@
 php artisan crud:generate Aliment --fields='name#string; description#text; category#select#options={"Vitamine": "Vitamine", "Minereau": "Minereau", "Torteau": "Torteau", "Autre":"Autre"}' --view-path=admin --controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html
- 
+
 php artisan crud:generate Produit --fields='name#string;quantite#double;prix_unitaire#double;description#text; category#select#options={"Vitamine": "Vitamine", "Minereau": "Minereau", "Torteau": "Torteau", "Autre":"Autre"}' --foreign-keys="user_id#id#users#cascade"--controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html --validations="name#min:10;quantite#required;" --soft-deletes
 
 php artisan crud:generate Animal --fields='name#string;quantite#double;prix_unitaire#double;description#text; type#string' --foreign-keys="user_id"--controller-namespace=App\\Http\\Controllers\\Admin --route-group=admin --form-helper=html --validations="name#min:2;quantite#numeric#required;" --soft-deletes
 
-
-
 php artisan crud:generate FileAlimentation --fields='produit#string;quantite#double;prix_unitaire#double;observations#text; type#string'
-
 
 php artisan crud:generate Vainqueur --fields='nom#string;age#double;prix_unitaire#double;observations#text; type#string'
 
 php artisan crud:generate Client --fields='nom#string;prenom#string;contact#string;type#string'
-php artisan crud:generate Fournisseur --fields='nom#string;prenom#string;contact#string;type#string'
 
+php artisan crud:generate Fournisseur --fields='nom#string;prenom#string;contact#string;type#string'
 
 php artisan crud:generate VenteOeuf --fields='quantite#double;client_id#integer;prix_unitaire#double'
 
+php artisan crud:generate VentePoule --fields='quantite#double;client_id#integer;prix_unitaire#double'
 
-
-
-
-
-
-
-
-
-
+php artisan crud:generate PerteProduit --fields='quantite#double;produit_id#integer'
 
 - La gestion des cycles 
-Journalisation des évènements
-Gestion de la consommation
-Gestion de la prophylaxie
-Gestion de la production 
+- Journalisation des évènements
+- Gestion de la consommation
+- Gestion de la prophylaxie
+- Gestion de la production 
 - La gestion des œufs 
-Classement et tri des œufs 
-Gestion du stock des œufs
-Gestion des ramassages
+- Classement et tri des œufs 
+- Gestion du stock des œufs
+- Gestion des ramassages
 - La gestion des ventes et des dépenses
-Enregistrement de vente et facturation
-Historisation des ventes
-Gestion des impayés et des recouvrements 
-Gestion des dépenses
-Gestion de la caisse
+- Enregistrement de vente et facturation
+- Historisation des ventes
+- Gestion des impayés et des recouvrements 
+- Gestion des dépenses
+- Gestion de la caisse
 - La gestion des clients et fournisseurs
-Gestion du catalogue des clients et des fournisseurs,
-Gestion des redevances et paiement fournisseur
+- Gestion du catalogue des clients et des fournisseurs,
+- Gestion des redevances et paiement fournisseur
 - La gestion de stock
-Gestion des ravitaillements
-Gestion de stock produit alimentaire, produit de traitement,.
+- Gestion des ravitaillements
+- Gestion de stock produit alimentaire, produit de traitement,.

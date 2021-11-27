@@ -25,7 +25,7 @@ class RapportController extends Controller
     public function file_alimentation()
     {
         
-
+        
         return view("rapport.file_alimentation");
     }
 

@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Client;
 use Illuminate\Database\Eloquent\Model;
 
-class VenteOeuf extends Model
+class PerteProduit extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'vente_oeufs';
+    protected $table = 'perte_produits';
 
     /**
     * The database primary key value.
@@ -26,10 +25,7 @@ class VenteOeuf extends Model
      *
      * @var array
      */
-    protected $fillable = ['quantite','type', 'client_id', 'prix_unitaire'];
+    protected $fillable = ['quantite', 'produit_id'];
 
-    public function client(){
-        return $this->belongsTo(Client::class,  'client_id','id');
-    }
     
 }

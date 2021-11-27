@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateVenteOeufsTable extends Migration
+class CreateVentePoulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateVenteOeufsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vente_oeufs', function (Blueprint $table) {
+        Schema::create('vente_poules', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('quantite')->nullable();
-            $table->string('type')->nullable();
-            $table->foreignId('client_id')->nullable();
-            $table->double('prix_unitaire')->nullable();
             $table->timestamps();
+            $table->string('type');
+            $table->double('quantite')->nullable();
+            $table->integer('client_id')->nullable();
+            $table->double('prix_unitaire')->nullable();
             });
     }
 
@@ -29,6 +29,6 @@ class CreateVenteOeufsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('vente_oeufs');
+        Schema::drop('vente_poules');
     }
 }
