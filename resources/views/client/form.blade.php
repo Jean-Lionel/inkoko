@@ -15,7 +15,7 @@
 </div>
 <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
     <label for="type" class="control-label">{{ 'Type' }}</label>
-    <input class="form-control" name="type" type="text" id="type" value="{{ isset($client->type) ? $client->type : ''}}" >
+    <input class="form-control" name="type" type="text" id="type" value="{{ isset($client->type) ? $client->type : 'FIDELE'}}" >
     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
 </div>
 

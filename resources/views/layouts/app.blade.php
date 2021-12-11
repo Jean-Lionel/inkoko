@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- Choices CSS-->
@@ -18,7 +19,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('css/custom.css')}}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="data:.">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')}}"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script><![endif]-->
@@ -30,7 +31,7 @@
       <div class="sidebar-header d-flex align-items-center justify-content-center p-3 mb-3">
         <!-- User Info-->
         <div class="sidenav-header-inner text-center"><img class="img-fluid rounded-circle avatar mb-3" src="{{ asset('img/lionel.jpg') }}" alt="person">
-          <h2 class="h5 text-white text-uppercase mb-0">JEAN LIONEL</h2>
+          <h2 class="h5 text-white text-uppercase mb-0">NADINE NKURUNZIZA</h2>
           <p class="text-sm mb-0 text-muted">Web Developer</p>
         </div>
         <!-- Small Brand information, appears on minimized sidebar--><a class="brand-small text-center" href="index.html">
@@ -74,13 +75,6 @@
             </svg>Perte produits</a>
           </li>
 
-           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#imac-screen-1"> </use>
-            </svg>
-            </svg>Caisse & Dépenses</a>
-          </li>
-
 
 
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('file-alimentation') }}"> 
@@ -106,19 +100,13 @@
               <use xlink:href="#security-shield-1"> </use>
             </svg>Rapport</a>
         </li>
-        <li class="sidebar-item"> <a class="sidebar-link" href="">
+        <li class="sidebar-item">
+         <a class="sidebar-link" href="{{ route('demo') }}">
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Demo
             <div class="badge bg-info">Special</div></a></li>
-        <li class="sidebar-item"> <a class="sidebar-link" href=""> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#quality-1"> </use>
-            </svg>Demo</a></li>
-        <li class="sidebar-item"> <a class="sidebar-link" href=""> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#security-shield-1"> </use>
-            </svg>Demo</a></li>
+       
       </ul>
     </nav>
     <div class="page">
@@ -131,7 +119,9 @@
                   <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
                     <use xlink:href="#menu-1"> </use>
                   </svg></a><a class="navbar-brand ms-2" href="index.html">
-                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">FERME  </span><strong class="text-primary text-sm">AVICOLE</strong></div></a></div>
+                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0">
+                    <img width="30px" src="{{ asset('img/igicaniro.jpg') }}" alt="">
+                    <span class="text-white fw-normal text-xs">GAVIG  </span><strong class="text-primary text-sm">-IGICANIRO</strong></div></a></div>
               <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Notifications dropdown-->
              
@@ -155,7 +145,7 @@
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item">
+                <li class="nav-item noPrint" >
                     <form action="{{ route('logout') }}" method="post">
                       @csrf
                       @method("post")
@@ -181,10 +171,11 @@
         <div class="container-fluid">
           <div class="row text-center gy-3">
             <div class="col-sm-6 text-sm-start">
-              <p class="mb-0 text-sm text-gray-600">Your company &copy; 2017-2021</p>
+              <p class="mb-0 text-sm text-gray-600">Nadine NKURUNZIZA
+               &copy; 2021</p>
             </div>
             <div class="col-sm-6 text-sm-end">
-              <p class="mb-0 text-sm text-gray-600">Design by <a href="https://bootstrapious.com/p/bootstrap-4-dashboard" class="external">Bootstrapious</a></p>
+              <p class="mb-0 text-sm text-gray-600"> <a href="" class="external">Bujumbura-Burundi</a></p>
               <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions and it helps me to run Bootstrapious. Thank you for understanding :)-->
             </div>
           </div>
@@ -197,7 +188,7 @@
     <script src="{{ asset('vendor/just-validate/js/just-validate.min.js')}}"></script>
     <script src="{{ asset('vendor/choices.js/public/assets/scripts/choices.min.js')}}"></script>
     <script src="{{ asset('vendor/overlayscrollbars/js/OverlayScrollbars.min.js')}}"></script>
-    <script src="{{ asset('js/charts-home.js')}}"></script>
+    {{-- <script src="{{ asset('js/charts-home.js')}}"></script> --}}
     <!-- Main File-->
     <script src="{{ asset('js/front.js')}}"></script>
     <script>
@@ -226,7 +217,12 @@
       
       
     </script>
+
+    @yield("javascript")
+
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
   </body>
 </html>

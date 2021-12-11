@@ -3,9 +3,9 @@
         <div class="card-body">
             <ul class="nav" role="tablist">
                 <li role="presentation">
-                    <a href="{{ route('file_alimentation') }}">
+                   {{--  <a href="{{ route('file_alimentation') }}">
                         Fiche d'alimentation
-                    </a>
+                    </a> --}}
                 </li>
             </ul>
         </div>

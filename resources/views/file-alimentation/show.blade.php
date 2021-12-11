@@ -27,7 +27,8 @@
                                     <tr>
                                         <th>ID</th><td>{{ $filealimentation->id }}</td>
                                     </tr>
-                                    <tr><th> Produit </th><td> {{ $filealimentation->produit }} </td></tr><tr><th> Quantite </th><td> {{ $filealimentation->quantite }} </td></tr><tr><th> Prix Unitaire </th><td> {{ $filealimentation->prix_unitaire }} </td></tr>
+                                    <tr><th> Produit </th><td> 
+                                        {{ $filealimentation->produit->name }} </td></tr><tr><th> Quantite </th><td> {{ $filealimentation->quantite }} </td></tr><tr><th> Prix Unitaire </th><td> {{ $filealimentation->prix_unitaire }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produit;
 use App\Models\Rapport;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class RapportController extends Controller
      */
     public function index()
     {
-        return view("rapport.index");
+        $stocks = Produit::all();    
+        $label_stoks = $stocks->map->name;
+        $qte_stoks = $stocks->map->quantite;
+        return view("rapport.index", compact("label_stoks","qte_stoks"));
     }
 
     /**
@@ -23,9 +27,7 @@ class RapportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function file_alimentation()
-    {
-        
-        
+    { 
         return view("rapport.file_alimentation");
     }
 

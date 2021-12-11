@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use App\Models\Produit;
-use App\Models\PerteProduit;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 
-class PerteProduitController extends Controller
+use App\Models\Film;
+use Illuminate\Http\Request;
+
+class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,17 @@ class PerteProduitController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $perteproduit = PerteProduit::where('quantite', 'LIKE', "%$keyword%")
-                ->orWhere('produit_id', 'LIKE', "%$keyword%")
+            $film = Film::where('titre', 'LIKE', "%$keyword%")
+                ->orWhere('cover', 'LIKE', "%$keyword%")
+                ->orWhere('category_id', 'LIKE', "%$keyword%")
+                ->orWhere('prix', 'LIKE', "%$keyword%")
+                ->orWhere('quantite', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $perteproduit = PerteProduit::latest()->paginate($perPage);
+            $film = Film::latest()->paginate($perPage);
         }
 
-        return view('perte-produit.index', compact('perteproduit'));
+        return view('admin.film.index', compact('film'));
     }
 
     /**
@@ -38,8 +41,7 @@ class PerteProduitController extends Controller
      */
     public function create()
     {
-        $produits = Produit::all();
-        return view('perte-produit.create', compact("produits"));
+        return view('admin.film.create');
     }
 
     /**
@@ -53,19 +55,10 @@ class PerteProduitController extends Controller
     {
         
         $requestData = $request->all();
-
-        $produit = Produit::find($request->produit_id);
-        $produit->quantite -= $request->quantite;
         
-        if($produit->quantite >= 0){
-            $produit->save();
-            PerteProduit::create($requestData);
-        }else{
-            return redirect('perte-produit')->with('flash_message', 'Error ');
-        }
-        
+        Film::create($requestData);
 
-        return redirect('perte-produit')->with('flash_message', 'PerteProduit added!');
+        return redirect('admin/film')->with('flash_message', 'Film added!');
     }
 
     /**
@@ -77,9 +70,9 @@ class PerteProduitController extends Controller
      */
     public function show($id)
     {
-        $perteproduit = PerteProduit::findOrFail($id);
+        $film = Film::findOrFail($id);
 
-        return view('perte-produit.show', compact('perteproduit'));
+        return view('admin.film.show', compact('film'));
     }
 
     /**
@@ -91,9 +84,9 @@ class PerteProduitController extends Controller
      */
     public function edit($id)
     {
-        $perteproduit = PerteProduit::findOrFail($id);
+        $film = Film::findOrFail($id);
 
-        return view('perte-produit.edit', compact('perteproduit'));
+        return view('admin.film.edit', compact('film'));
     }
 
     /**
@@ -109,10 +102,10 @@ class PerteProduitController extends Controller
         
         $requestData = $request->all();
         
-        $perteproduit = PerteProduit::findOrFail($id);
-        $perteproduit->update($requestData);
+        $film = Film::findOrFail($id);
+        $film->update($requestData);
 
-        return redirect('perte-produit')->with('flash_message', 'PerteProduit updated!');
+        return redirect('admin/film')->with('flash_message', 'Film updated!');
     }
 
     /**
@@ -124,8 +117,8 @@ class PerteProduitController extends Controller
      */
     public function destroy($id)
     {
-        PerteProduit::destroy($id);
+        Film::destroy($id);
 
-        return redirect('perte-produit')->with('flash_message', 'PerteProduit deleted!');
+        return redirect('admin/film')->with('flash_message', 'Film deleted!');
     }
 }

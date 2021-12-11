@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\Client;
 use App\Models\VentePoule;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class VentePouleController extends Controller
 {
@@ -39,7 +39,9 @@ class VentePouleController extends Controller
      */
     public function create()
     {
-        return view('vente-poule.create');
+        $clients = Client::all();
+
+        return view('vente-poule.create', compact("clients"));
     }
 
     /**

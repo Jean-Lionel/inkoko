@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <a href="">Fiche d’alimentation</a>
+                    {{-- <a href="">Fiche d’alimentation</a> --}}
                 </div>
                 <div class="card">
 

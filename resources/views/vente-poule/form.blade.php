@@ -10,8 +10,19 @@
     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('client_id') ? 'has-error' : ''}}">
-    <label for="client_id" class="control-label">{{ 'Client Id' }}</label>
-    <input class="form-control" name="client_id" type="number" id="client_id" value="{{ isset($ventepoule->client_id) ? $ventepoule->client_id : ''}}" >
+    <label for="client_id" class="control-label">{{ 'Client ' }}</label>
+   
+    <select class="form-control" name="client_id" id="client_id">
+        <option></option>
+        @foreach($clients as $client)
+        <option value="{{ $client->id }}">
+            {{ $client->nom }}
+            {{ $client->prenom }}
+        </option>
+        @endforeach
+        
+    </select>
+
     {!! $errors->first('client_id', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('prix_unitaire') ? 'has-error' : ''}}">

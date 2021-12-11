@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
@@ -52,3 +53,5 @@ Route::resource('fournisseur', FournisseurController::class);
 Route::resource('vente-oeuf', VenteOeufController::class);
 Route::resource('vente-poule', VentePouleController::class);
 Route::resource('perte-produit', PerteProduitController::class);
+Route::get("demo",[DemoController::class, 'index'])->name("demo");
+Route::resource('admin/film', 'App\Http\Controllers\Admin\FilmController');

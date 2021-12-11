@@ -4,7 +4,7 @@
             Sidebar
         </div>
 
-        <div class="card-body">
+        {{-- <div class="card-body">
             <ul class="nav" role="tablist">
                 <li role="presentation">
                     <a href="{{ url('/admin') }}">
@@ -12,6 +12,6 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </div>

@@ -5,7 +5,15 @@
 </div>
 <div class="form-group {{ $errors->has('produit_id') ? 'has-error' : ''}}">
     <label for="produit_id" class="control-label">{{ 'Produit Id' }}</label>
-    <input class="form-control" name="produit_id" type="number" id="produit_id" value="{{ isset($perteproduit->produit_id) ? $perteproduit->produit_id : ''}}" >
+
+    <select name="produit_id" id="produit_id"  class="form-control">
+        <option></option>
+        @foreach($produits as $pro)
+        <option value="<?=  $pro->id ?>">{{ $pro->name  }} La qté disponible est de {{ $pro->quantite }}</option>
+        @endforeach
+    </select>
+
+
     {!! $errors->first('produit_id', '<p class="help-block">:message</p>') !!}
 </div>
 
