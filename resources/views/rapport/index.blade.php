@@ -79,7 +79,7 @@
     // ------------------------------------------------------ //
     var PIECHART = document.getElementById("pieChart");
     var myPieChart = new Chart(PIECHART, {
-        type: "doughnut",
+        type: "line",
         data: {
             labels:  label_stoks,
             datasets: [

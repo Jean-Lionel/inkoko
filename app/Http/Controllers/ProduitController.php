@@ -103,7 +103,7 @@ class ProduitController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'name' => 'min:10',
+			'name' => 'min:3',
 			'quantite' => 'required'
 		]);
         $requestData = $request->all();
