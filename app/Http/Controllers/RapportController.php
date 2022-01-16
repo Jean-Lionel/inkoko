@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Fournisseur;
 use App\Models\Produit;
 use App\Models\Rapport;
+use App\Models\VenteOeuf;
+use App\Models\VentePoule;
 use Illuminate\Http\Request;
 
 class RapportController extends Controller
@@ -18,7 +22,20 @@ class RapportController extends Controller
         $stocks = Produit::all();    
         $label_stoks = $stocks->map->name;
         $qte_stoks = $stocks->map->quantite;
-        return view("rapport.index", compact("label_stoks","qte_stoks"));
+
+        $client_total = Client::all()->count();
+        $total_oeuf  = VenteOeuf::all()->sum('quantite');
+        $total_poule  = VentePoule::all()->sum('quantite');
+
+        $total_fournisseur = Fournisseur::all()->count();
+        
+        // NOMBRES TOTAL DES CLIENTS
+        // NOMBRES TOTAL DES VENTES DES OEUFS OU DES POULES
+
+        return view("rapport.index", 
+            compact("label_stoks","qte_stoks","client_total",
+                "total_oeuf", "total_poule", "total_fournisseur")
+        );
     }
 
     /**

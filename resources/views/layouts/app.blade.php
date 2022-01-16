@@ -44,7 +44,6 @@
               <use xlink:href="#security-shield-1"> </use>
             </svg>Poule </a>
           </li>
-
           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('client') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#quality-1"> </use>
@@ -55,38 +54,27 @@
               <use xlink:href="#real-estate-1"> </use>
             </svg>Fournisseurs </a>
           </li>
-
          <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-oeuf') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Vente des oeufs</a>
           </li>
-
           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('vente-poule') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-user me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Vente des poules</a>
           </li>
 
-
           <li class="sidebar-item"><a class="sidebar-link" href="{{ url('perte-produit') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Perte produits</a>
           </li>
-
-
-
         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('file-alimentation') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>Ravitaillement</a></li>
-        <li class="sidebar-item">
-          <a class="sidebar-link" href=""> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#sales-up-1"> </use>
-            </svg>Charts </a>
-        </li>
+   
         <li class="sidebar-item">
           <a class="sidebar-link" href=" {{ url('/admin/produit') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
@@ -105,8 +93,7 @@
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Demo
-            <div class="badge bg-info">Special</div></a></li>
-       
+            <div class="badge bg-info"></div></a></li>
       </ul>
     </nav>
     <div class="page">

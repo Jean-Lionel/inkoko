@@ -3,11 +3,50 @@
 @section('content')
     <div class="">
         <div class="row">
-            @include('rapport.sidebar')
-            <div class="col-md-9">
-                <div class="card">
-                </div>
+            <div class="col-md-2">
+                <h4 class="text-center"> TOTAL DES CLIENTS</h4>
+                <p class="d-flex  justify-content-between"> 
+                    <i class="fa fa-users"></i> 
+                    <b>{{ $client_total }}</b> 
+                </p>
             </div>
+              <div class="col-md-3">
+                <h4 class="text-center">MONTANT DES VENTES</h4>
+                <p class="d-flex justify-content-between"> 
+                    <span>oeufs</span>
+                    <span>
+                        <b>{{ $total_oeuf }}</b>
+                    </span>  
+                    <span>
+                        <b>#BIF</b>
+                    </span>
+                </p> 
+                <p class="d-flex justify-content-between"> 
+                   <span>Poules </span>
+                    <span>
+                        <b>{{  $total_poule }}</b>
+                    </span>
+                    <span>
+                        <b>#BIF</b>
+                    </span>
+                </p>
+            </div>
+              <div class="col-md-3">
+                <h4 class="text-center">TOTAL DES FOURNISSEURS</h4>
+                <p class="text-center">
+                    <span></span>
+                    <span>{{ $total_fournisseur }}</span>
+                </p>
+            </div>
+              <div class="col-md-3">
+                <h4 class="text-center">DATE </h4>
+                <p class="text-center">{{ date('d-m-Y') }}</p>
+            </div>
+            
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
             <div class="col-md-6">
                 <h5>Liste des produits en stock</h5>
                 <canvas id="lineCahrt" width="100%"></canvas>
