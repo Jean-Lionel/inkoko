@@ -44,8 +44,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                          <td>
-                                            {{ $item->client->nom }} 
-                                            {{ $item->client->prenom }}
+                                            {{ $item->client->nom ?? "" }} 
+                                            {{ $item->client->prenom ?? "" }}
                                          </td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->quantite }}</td>

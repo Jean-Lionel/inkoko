@@ -24,9 +24,21 @@ class RapportController extends Controller
         $qte_stoks = $stocks->map->quantite;
 
         $client_total = Client::all()->count();
-        $total_oeuf  = VenteOeuf::all()->sum('quantite');
-        $total_poule  = VentePoule::all()->sum('quantite');
+         $v_oeufs = VenteOeuf::all();
+        $v_poules  = VentePoule::all();
 
+        $total_oeuf = 0;
+        $total_poule = 0;
+
+        foreach ($v_poules  as $key => $value) {
+            // code...
+            $total_poule += ($value->quantite * $value->prix_unitaire);
+        }
+
+        foreach ($v_oeufs  as $key => $value) {
+            // code...
+            $total_oeuf += ($value->quantite * $value->prix_unitaire);
+        }
         $total_fournisseur = Fournisseur::all()->count();
         
         // NOMBRES TOTAL DES CLIENTS

@@ -15,7 +15,7 @@
                 <p class="d-flex justify-content-between"> 
                     <span>oeufs</span>
                     <span>
-                        <b>{{ $total_oeuf }}</b>
+                        <b>{{ number_format($total_oeuf); }}</b>
                     </span>  
                     <span>
                         <b>#BIF</b>
@@ -24,7 +24,7 @@
                 <p class="d-flex justify-content-between"> 
                    <span>Poules </span>
                     <span>
-                        <b>{{  $total_poule }}</b>
+                        <b>{{  number_format($total_poule); }}</b>
                     </span>
                     <span>
                         <b>#BIF</b>
